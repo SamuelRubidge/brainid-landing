@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrainID | AI Mass Screening for CNS Drugs</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+            --accent-blue: #58a6ff;
+            --text-main: #e6edf3;
+            --text-sub: #8b949e;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* NAV */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 0;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+        .logo span { color: var(--accent-blue); }
+        
+        .nav-link {
+            color: var(--text-sub);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .nav-link:hover { color: #fff; }
+
+        /* HERO SECTION */
+        .hero {
+            text-align: center;
+            padding: 80px 0 60px;
+        }
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(180deg, #fff 0%, #aebecf 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-sub);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        /* WAITLIST FORM */
+        .waitlist-form {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        input[type="email"] {
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background-color: var(--card-bg);
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+        }
+        input[type="email"]:focus { border-color: var(--accent-blue); }
+        
+        button {
+            padding: 12px 24px;
+            border-radius: 6px;
+            border: none;
+            background-color: var(--accent-blue);
+            color: #fff;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover { background-color: #4a8bcc; }
+
+        /* PROBLEM / SOLUTION */
+        .section { padding: 80px 0; border-top: 1px solid var(--border-color); }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        h2 { font-size: 2rem; margin-bottom: 20px; color: #fff; }
+        p { color: var(--text-sub); font-size: 1.1rem; margin-bottom: 20px; }
+        
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .stat-val { font-size: 2.5rem; font-weight: 700; color: #f85149; line-height: 1; margin-bottom: 10px; }
+        .stat-label { font-size: 0.9rem; color: var(--text-sub); text-transform: uppercase; letter-spacing: 0.05em; }
+
+        /* TEAM */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .founder-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+        }
+        .founder-name { font-weight: 700; color: #fff; font-size: 1.1rem; margin-bottom: 5px; }
+        .founder-role { color: var(--accent-blue); font-size: 0.9rem; margin-bottom: 15px; font-weight: 500; }
+        .founder-bio { font-size: 0.9rem; color: var(--text-sub); line-height: 1.5; }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .grid-2, .team-grid { grid-template-columns: 1fr; }
+            .waitlist-form { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+            <div class="logo">Brain<span>ID</span></div>
+            <a href="mailto:founders@brainid.ai" class="nav-link">Contact</a>
+        </nav>
+
+        <div class="hero">
+            <h1>AI mass screening for<br>brain entry of CNS drugs.</h1>
+            <div class="subtitle">
+                The first platform to mass-screen novel candidates for blood-brain barrier permeability by solving the "Active Efflux" problem.
+            </div>
+
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {alert('Thanks! You have joined the waitlist.');}"></iframe>
+            
+            <form class="waitlist-form" action="https://docs.google.com/forms/d/e/1FAIpQLScFI204vAQyPWEU93nlczt3vSe4bCAtow51lT6lRth3qVaPjw/formResponse" method="post" target="hidden_iframe" onsubmit="submitted=true;">
+                <input type="email" name="entry.303237654" placeholder="Enter your email" required>
+                <button type="submit">Join Waitlist</button>
+            </form>
+            <script>var submitted=false;</script>
+            
+            <p style="margin-top: 20px; font-size: 0.9rem; color: var(--text-sub);">
+                Accepting pilot partners for Q3 2026.
+            </p>
+        </div>
+
+        <div class="section">
+            <div class="grid-2">
+                <div>
+                    <h2>The $50M Problem</h2>
+                    <p>
+                        Currently, <strong>94% of CNS drug candidates fail</strong> clinical trials, largely because they are <strong>unable to reach the brain</strong>.
+                    </p>
+                    <p>
+                        Industry models rely on passive transport metrics, failing to account for the primary driver of this failure: <strong>active efflux</strong>. Boltz-2 solves this but is too computationally expensive to run at scale (200k+ compounds).
+                    </p>
+                </div>
+                <div>
+                    <div class="stat-card">
+                        <div class="stat-val">94%</div>
+                        <div class="stat-label">CNS Candidate Failure Rate</div>
+                    </div>
+                    <div class="stat-card" style="border-color: var(--accent-blue);">
+                        <div class="stat-val" style="color: var(--accent-blue);">99%</div>
+                        <div class="stat-label">Non-viable Molecules Filtered by BrainID</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>The BrainID Solution</h2>
+            <p style="max-width: 700px;">
+                We utilize a proprietary filtering pipeline that analyzes circulatory system survival and passive transport metrics first. This eliminates 99% of noise, enabling us to run high-fidelity Boltz-2 active gatekeeper analysis only on the highest-probability candidates.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Built by Scientists & Engineers</h2>
+            <p>UChicago PhD researchers and Full-Stack Builders.</p>
+            
+            <div class="team-grid">
+                <div class="founder-card">
+                    <div class="founder-name">Maria J. Román-Vasquez</div>
+                    <div class="founder-role">CEO & Scientific Lead</div>
+                    <div class="founder-bio">
+                        [cite_start]PhD Candidate and McCormick Research Fellow at UChicago[cite: 19, 21]. [cite_start]Specializes in synthetic and medicinal chemistry, drug discovery, and neuroimmunology[cite: 6]. [cite_start]Currently leading research on neuroinflammation mitigation via small-molecule kinase inhibitors[cite: 24].
+                    </div>
+                </div>
+
+                <div class="founder-card">
+                    <div class="founder-name">Olabisi Aishat</div>
+                    <div class="founder-role">CSO & Machine Learning Lead</div>
+                    <div class="founder-bio">
+                        PhD student at UChicago co-advised by the Esser-Kahn and Ferguson labs. Works at the intersection of immunology, machine learning, and chemistry to generate optimized small molecule immunomodulators. B.S. in Chemical Engineering from Howard University.
+                    </div>
+                </div>
+
+                <div class="founder-card">
+                    <div class="founder-name">Samuel Rubidge</div>
+                    <div class="founder-role">CTO & Engineering Lead</div>
+                    <div class="founder-bio">
+                        [cite_start]M.S. in Financial Mathematics from UChicago[cite: 262]. [cite_start]Quant Researcher Intern at Neuberger Berman[cite: 279]. [cite_start]Previously Co-Founder & CTO of Riots AI and Baboons AI[cite: 270, 274], where he built production-grade data pipelines and ML models. [cite_start]Expert in Python, AWS infrastructure, and full-stack deployment[cite: 298].
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            &copy; 2026 BrainID. Based in Chicago, IL & San Francisco, CA.
+        </footer>
+    </div>
+
+</body>
+</html>
